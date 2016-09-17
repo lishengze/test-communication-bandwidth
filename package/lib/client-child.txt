@@ -1,0 +1,12 @@
+Hello Pid: 21452
+
+Environment Params: 
+0: C:\Users\lishe\AppData\Local\monitor2\app-0.1.1\monitor2.exe
+1: C:\Users\lishe\.monitor\packages\test-com\lib\client-child.js
+2: Hello client-child!
+reqData.event: SocketIONewUserCome
+Client: CurUserSocketioId admin2 ready!
+Client: admin2  connect completed!
+
++++++++++  Communication FrontConnected! ++++++++
+
