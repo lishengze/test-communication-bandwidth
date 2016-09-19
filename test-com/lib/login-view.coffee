@@ -14,10 +14,21 @@ bLoginFailed = false
 LoginTimes = 1;
 
 g_output_info = "";
-g_rtnNumber = 0;
+g_RtnObjectAttrTopic_spi_callbackNumb = 0;
 g_startTime = 0;
 g_endTime = 0;
-g_timeInterval = 60 * 60 * 1000;
+
+g_sec = 1
+g_min = 1
+g_timeInterval = g_sec * g_min * 1000;
+test_numb = 7;
+g_sec_array[] = [1,5,30,60,60,60,60];
+g_min_array[] = [1,1,1, 1, 5, 30,60];
+
+g_reqNumb = 1;
+g_rtn_over = false; 
+g_testTimeIndex = 0;
+
 g_curDate = "";
 g_stop = false;
 
@@ -28,6 +39,30 @@ testfileName = path.join __dirname, './test-communication.txt'
 GetCurrTime = ->
   myDate = new Date()
   return myDate;
+
+resetReqQrySubscriber = ->
+    if g_reqNumb ===  6 
+        g_testTimeIndex++;
+
+        if (g_testTimeIndex >= test_numb) {
+            exit(0);
+        }
+
+        console.log ("reset time!");
+        g_sec = g_sec_array[g_testTimeIndex];
+        g_min = g_min_array[g_testTimeIndex];
+        console.log ("g_sec: " + g_sec);  
+        console.log ("g_min: " + g_min); 
+
+        g_stopusec = g_min * g_sec * 1000000;
+        g_reqNumb = 1; 
+
+    g_curDate = GetCurrTime();
+    g_startTime = g_curDate.getTime();
+    fs.appendFileSync(testfileName, '\n' + 'StartTime:    ' + g_curDate + '\n');
+
+    g_rtn_over = false;
+    g_RtnObjectAttrTopic_spi_callbackNumb = 0;  
 
 module.exports =
 class LoginView extends View
@@ -108,24 +143,30 @@ class LoginView extends View
         loginReqField.message   = EVENTS.RspQrySysUserLoginTopic + loginReqField.RequestId
 
         userApi.emitter.emit EVENTS.SocketIONewUserCome, loginReqField
+
         g_curDate = GetCurrTime();
         g_startTime = g_curDate.getTime();
         fs.appendFileSync(testfileName, '\n' + 'StartTime:    ' + g_curDate + '\n');
+
         console.log 'StartTime: ' + g_curDate
 
         userApi.emitter.on EVENTS.RtnObjectAttrTopic, (data) =>
-          ++g_rtnNumber;
+          if g_rtn_over === false 
+            return
+
+          ++g_RtnObjectAttrTopic_spi_callbackNumb;
+
           g_curDate = GetCurrTime();
-          if (g_curDate.getTime() - g_startTime) > g_timeInterval && false == g_stop
+          if (g_curDate.getTime() - g_startTime) > g_timeInterval 
             g_output_info =  'time :        ' + g_timeInterval/1000 + 's\n'
-            g_output_info += 'callbackNumb: ' + g_rtnNumber + '\n'
-            g_output_info += 'AveCallbkNumb:' + g_rtnNumber / (g_timeInterval/1000) + '\n'
-            g_output_info += 'data:         ' + g_rtnNumber * 432 + 'bytes\n'
+            g_output_info += 'callbackNumb: ' + g_RtnObjectAttrTopic_spi_callbackNumb + '\n'
+            g_output_info += 'AveCallbkNumb:' + g_RtnObjectAttrTopic_spi_callbackNumb / (g_timeInterval/1000) + '\n'
+            g_output_info += 'data:         ' + g_RtnObjectAttrTopic_spi_callbackNumb * 432 + 'bytes\n'
             g_output_info += 'EndTime:      ' + g_curDate + '\n';
 
             fs.appendFileSync(testfileName, g_output_info + '\n');
-            g_stop = true;
-            atom.close();
+            g_rtn_over = true;
+            resetReqQrySubscriber();
 
   logoutFunc = ->
       atom.close()
