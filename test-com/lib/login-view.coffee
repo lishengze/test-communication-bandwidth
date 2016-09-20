@@ -22,8 +22,8 @@ g_sec = 1
 g_min = 1
 g_timeInterval = g_sec * g_min * 1000;
 test_numb = 7;
-g_sec_array[] = [1,5,30,60,60,60,60];
-g_min_array[] = [1,1,1, 1, 5, 30,60];
+g_sec_array = [1,5,30,60,60,60,60];
+g_min_array = [1,1,1, 1, 5, 30,60];
 
 g_reqNumb = 1;
 g_rtn_over = false; 
@@ -34,33 +34,34 @@ g_stop = false;
 
 fs           = require 'fs'
 path         = require 'path'
-testfileName = path.join __dirname, './test-communication.txt'
+testfileName = path.join __dirname, './test-communication-ubuntu.txt'
 
 GetCurrTime = ->
   myDate = new Date()
   return myDate;
 
 resetReqQrySubscriber = ->
-    if g_reqNumb ===  6 
+    if g_reqNumb ==  6 
         g_testTimeIndex++;
 
-        if (g_testTimeIndex >= test_numb) {
-            exit(0);
-        }
+        if g_testTimeIndex >= test_numb 
+            atom.close();
 
-        console.log ("reset time!");
         g_sec = g_sec_array[g_testTimeIndex];
         g_min = g_min_array[g_testTimeIndex];
-        console.log ("g_sec: " + g_sec);  
-        console.log ("g_min: " + g_min); 
+        g_timeInterval = g_sec * g_min * 1000; 
+        g_output_info = "--- Reset Test Time! ---" + '\n';
+        g_output_info += "g_sec: " + g_sec + "    ";
+        g_output_info += "g_min: " + g_min + '\n';
+        fs.appendFileSync testfileName, g_output_info
 
         g_stopusec = g_min * g_sec * 1000000;
         g_reqNumb = 1; 
 
     g_curDate = GetCurrTime();
     g_startTime = g_curDate.getTime();
-    fs.appendFileSync(testfileName, '\n' + 'StartTime:    ' + g_curDate + '\n');
-
+    fs.appendFileSync testfileName, '\n' + 'StartTime:    ' + g_curDate + '\n'
+    
     g_rtn_over = false;
     g_RtnObjectAttrTopic_spi_callbackNumb = 0;  
 
@@ -146,25 +147,29 @@ class LoginView extends View
 
         g_curDate = GetCurrTime();
         g_startTime = g_curDate.getTime();
-        fs.appendFileSync(testfileName, '\n' + 'StartTime:    ' + g_curDate + '\n');
+        fs.writeFileSync testfileName, '*********** Test Start **********\n'
+
+        fs.appendFileSync testfileName, '\n' + 'StartTime:     ' + g_curDate + '\n'
 
         console.log 'StartTime: ' + g_curDate
 
         userApi.emitter.on EVENTS.RtnObjectAttrTopic, (data) =>
-          if g_rtn_over === false 
+          if g_rtn_over == true 
             return
-
+          # console.log (EVENTS.RtnObjectAttrTopic)
           ++g_RtnObjectAttrTopic_spi_callbackNumb;
 
           g_curDate = GetCurrTime();
           if (g_curDate.getTime() - g_startTime) > g_timeInterval 
-            g_output_info =  'time :        ' + g_timeInterval/1000 + 's\n'
-            g_output_info += 'callbackNumb: ' + g_RtnObjectAttrTopic_spi_callbackNumb + '\n'
-            g_output_info += 'AveCallbkNumb:' + g_RtnObjectAttrTopic_spi_callbackNumb / (g_timeInterval/1000) + '\n'
-            g_output_info += 'data:         ' + g_RtnObjectAttrTopic_spi_callbackNumb * 432 + 'bytes\n'
-            g_output_info += 'EndTime:      ' + g_curDate + '\n';
+            g_output_info =  'TestTime :     ' + g_timeInterval/1000 + 's\n'
+            g_output_info += 'SumCallbkNumb: ' + g_RtnObjectAttrTopic_spi_callbackNumb + '\n'
+            g_output_info += 'AveCallbkNumb: ' + g_RtnObjectAttrTopic_spi_callbackNumb / (g_timeInterval/1000) + '\n'
+            g_output_info += 'BandWidth:     ' + g_RtnObjectAttrTopic_spi_callbackNumb * 432 / g_timeInterval * 1000 / 1024/1024 + 'M/s\n'
+            g_output_info += 'g_reqNumb:     ' + g_reqNumb++ + '\n';
+            g_output_info += 'EndTime:       ' + g_curDate + '\n';
 
-            fs.appendFileSync(testfileName, g_output_info + '\n');
+            fs.appendFileSync testfileName, g_output_info + '\n'
+              
             g_rtn_over = true;
             resetReqQrySubscriber();
 
