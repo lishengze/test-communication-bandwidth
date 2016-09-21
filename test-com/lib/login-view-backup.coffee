@@ -14,32 +14,32 @@ bLoginFailed = false
 LoginTimes = 1;
 
 g_output_info = "";
+g_rspMonitorNumber = 0;
 g_RtnObjectAttrTopic_spi_callbackNumb = 0;
-g_startTime = 0;
-g_endTime = 0;
 
-g_sec = 1
-g_min = 1
-g_stopusec = g_sec * g_min * 1000;
-test_numb = 4;
+g_sec = 1;
+g_min = 1;
+g_timeInterval = g_min * g_sec * 1000;
+
+g_rtn_over = false; 
+g_rtn_callback_onesec = 100 * 1000;
+
+g_reqNumb = 1;
+g_testTimeIndex = 0;
+test_numb = 7;
 g_sec_array = [1,5,30,60,60,60,60];
 g_min_array = [1,1,1, 1, 5, 30,60];
 
-g_reqNumb = 1;
-g_rtn_over = false; 
-g_testTimeIndex = 0;
-
-g_sec_rtnSendNumber = 50;
-g_sec_rtnSendFreq = 1000;
-g_rtn_callback_onesec = g_sec_rtnSendNumber * g_sec_rtnSendFreq;
+g_startTime = 0;
+g_endTime   = 0;
+g_costTime  = 0;
 
 g_curDate = "";
 g_stop = false;
 
 fs           = require 'fs'
 path         = require 'path'
-testfileName = path.join __dirname, './test-com-redhat-'+g_rtn_callback_onesec+'.txt'
-# testfileName = path.join __dirname, './test-com-redhat-socketio-'+g_rtn_callback_onesec+'.txt'
+testfileName = path.join __dirname, './test-communication-redhat.txt'
 
 GetCurrTime = ->
   myDate = new Date()
@@ -50,24 +50,21 @@ resetReqQrySubscriber = ->
         g_testTimeIndex++;
 
         if g_testTimeIndex >= test_numb 
-            atom.close();
+            exit(0);
 
+        console.log ("Reset Test Time!");
         g_sec = g_sec_array[g_testTimeIndex];
         g_min = g_min_array[g_testTimeIndex];
-        g_stopusec = g_sec * g_min * 1000; 
-        g_output_info = "\n--------- Reset Test Time! ---------" + '\n';
-        g_output_info += "g_sec: " + g_sec + "    ";
-        g_output_info += "g_min: " + g_min + '\n';
-        g_output_info += "g_testTimeIndex:  " + g_testTimeIndex + '\n';
+        console.log ("g_sec: " + g_sec);  
+        console.log ("g_min: " + g_min); 
 
-        fs.appendFileSync testfileName, g_output_info
-
+        g_stopusec = g_min * g_sec * 1000000;
         g_reqNumb = 1; 
 
     g_curDate = GetCurrTime();
     g_startTime = g_curDate.getTime();
-    fs.appendFileSync testfileName, '\n' + 'StartTime:    ' + g_curDate + '\n'
-    
+    fs.appendFileSync(testfileName, '\n' + 'StartTime:    ' + g_curDate + '\n');
+
     g_rtn_over = false;
     g_RtnObjectAttrTopic_spi_callbackNumb = 0;  
 
@@ -153,32 +150,51 @@ class LoginView extends View
 
         g_curDate = GetCurrTime();
         g_startTime = g_curDate.getTime();
-        fs.appendFileSync testfileName, '*********** Test Start **********\n'
-
-        fs.appendFileSync testfileName, 'g_rtn_callback_onesec: ' + g_rtn_callback_onesec + '\n'
-        fs.appendFileSync testfileName, '\n' + 'StartTime:     ' + g_curDate + '\n'
-
+        fs.appendFileSync(testfileName, '\n' + 'StartTime:    ' + g_curDate + '\n');
         console.log 'StartTime: ' + g_curDate
 
         userApi.emitter.on EVENTS.RtnObjectAttrTopic, (data) =>
-          if g_rtn_over == true 
+          if g_rtn_over == false 
             return
-          # console.log (EVENTS.RtnObjectAttrTopic)
+
           ++g_RtnObjectAttrTopic_spi_callbackNumb;
 
           g_curDate = GetCurrTime();
-          if (g_curDate.getTime() - g_startTime) > g_stopusec 
-            g_output_info =  'TestTime :     ' + g_stopusec/1000 + 's\n'
-            g_output_info += 'SumCallbkNumb: ' + g_RtnObjectAttrTopic_spi_callbackNumb + '\n'
-            g_output_info += 'AveCallbkNumb: ' + g_RtnObjectAttrTopic_spi_callbackNumb / (g_stopusec/1000) + '\n'
-            g_output_info += 'BandWidth:     ' + g_RtnObjectAttrTopic_spi_callbackNumb * 432 / g_stopusec * 1000 / 1024/1024 + 'M/s\n'
-            g_output_info += 'g_reqNumb:     ' + g_reqNumb++ + '\n';
-            g_output_info += 'EndTime:       ' + g_curDate + '\n';
+          if (g_curDate.getTime() - g_startTime) > g_timeInterval 
+            g_output_info =  'time :        ' + g_timeInterval/1000 + 's\n'
+            g_output_info += 'callbackNumb: ' + g_RtnObjectAttrTopic_spi_callbackNumb + '\n'
+            g_output_info += 'AveCallbkNumb:' + g_RtnObjectAttrTopic_spi_callbackNumb / (g_timeInterval/1000) + '\n'
+            g_output_info += 'BandWidth:    ' + g_RtnObjectAttrTopic_spi_callbackNumb * 432 / g_timeInterval * 1000 / 1024 / 1024 + 'MB/s\n'
+            g_output_info += 'EndTime:      ' + g_curDate + '\n';
 
-            fs.appendFileSync testfileName, g_output_info + '\n'
-              
+            fs.appendFileSync(testfileName, g_output_info + '\n');
             g_rtn_over = true;
             resetReqQrySubscriber();
+
+        # reqMonitorObjectTopicData = new userApiStruct.CShfeFtdcReqQryMonitorObjectField()
+        # ReqQryMonitorObjectTopicField = {}
+        # ReqQryMonitorObjectTopicField.reqObject = reqMonitorObjectTopicData
+        # ReqQryMonitorObjectTopicField.RequestId = ++ window.ReqQryMonitorObjectTopicRequestID
+        # ReqQryMonitorObjectTopicField.rspMessage =  EVENTS.RspQryMonitorObjectTopic + ReqQryMonitorObjectTopicField.RequestId
+        
+        userApi.emitter.on EVENTS.RspQryMonitorObjectTopic + 1, (data) ->
+          ++g_rspMonitorNumber;
+          g_curDate = GetCurrTime();
+          g_costTime = g_curDate.getTime() - g_startTime;
+
+          # if data.bIsLast == true
+          #   console.log 'g_rspMonitorNumber: ' + g_rspMonitorNumber
+          #   console.log 'g_costTime: ' + g_costTime
+
+          if g_costTime > g_timeInterval && false == g_stop
+            g_output_info =  'time :        ' + g_timeInterval/1000 + 's\n'
+            g_output_info += 'callbackNumb: ' + g_rspMonitorNumber + '\n'
+            g_output_info += 'AveCallbkNumb:' + g_rspMonitorNumber / (g_timeInterval/1000) + '\n'
+            g_output_info += 'EndTime:      ' + g_curDate + '\n';
+
+            fs.appendFileSync(testfileName, g_output_info + '\n');
+            g_stop = true;
+            atom.close();
 
   logoutFunc = ->
       atom.close()

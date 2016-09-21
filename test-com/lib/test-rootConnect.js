@@ -1,7 +1,7 @@
 var io       = require('socket.io-client');
 var events   = require("./events.js");
 var EVENTS   = new events.EVENTS();
-var isHttps  = false;
+var isHttps  = true;
 var isLocal  = false;
 var userSocket;
 var userServer;
@@ -16,8 +16,8 @@ var rootSocket;
 var connectServer = function (reqData) {
   if (true === isHttps) {
   	localUrl   = 'https://localhost';
-  	// serverUrl  = 'https://172.1.128.169';
-    serverUrl  = 'https://192.168.159.128';
+  	serverUrl  = 'https://172.1.128.169';
+    // serverUrl  = 'https://192.168.159.128';
   	port       = 8000;
     if (true === isLocal) {
       curUrl = localUrl;
@@ -28,8 +28,8 @@ var connectServer = function (reqData) {
   	rootSocket = io.connect(curUrl,{secure:true});
   } else {
   	localUrl   = 'http://localhost';
-    // serverUrl  = 'http://172.1.128.169';
-    serverUrl  = 'http://192.168.159.128';
+    serverUrl  = 'http://172.1.128.169';
+    // serverUrl  = 'http://192.168.159.128';
     if (true === isLocal) {
       curUrl = localUrl;
     } else {
@@ -68,6 +68,8 @@ rootSocket.on(EVENTS.SocketIONewUserReady, function(data){
        console.log("Client: " + userInfo.UserID + "  FrontConnected!");
   	   userSocket.emit(EVENTS.ReqQrySysUserLoginTopic, loginReqField1);
     });
+
+    
 });
 
 rootSocket.on('error', function(error){

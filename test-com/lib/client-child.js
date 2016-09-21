@@ -7,7 +7,7 @@ var SysUserApiStruct    = require("./SysUserApiStruct.js");
 var io                  = require('socket.io-client');
 var path                = require('path');
 var myDate              = new Date();
-var isHttps             = false;
+var isHttps             = true;
 var isLocal             = false;
 var connectTimeLimit    = 10000;
 var rootSocketStartTime = myDate.getTime();
@@ -26,8 +26,8 @@ var rootSocket;
 var connectServer = function (reqData) {
   if (true === isHttps) {
   	localUrl   = 'https://localhost';
-  	// serverUrl  = 'https://172.1.128.169';
-    serverUrl  = 'https://192.168.159.128';
+  	serverUrl  = 'https://172.1.128.169';
+    // serverUrl  = 'https://192.168.159.128';
   	port       = 8000;
     if (true === isLocal) {
       curUrl = localUrl;
@@ -38,8 +38,8 @@ var connectServer = function (reqData) {
   	rootSocket = io.connect(curUrl,{secure:true});
   } else {
   	localUrl   = 'http://localhost';
-    // serverUrl  = 'http://172.1.128.169';
-    serverUrl  = 'http://192.168.159.128';
+    serverUrl  = 'http://172.1.128.169';
+    // serverUrl  = 'http://192.168.159.128';
     if (true === isLocal) {
       curUrl = localUrl;
     } else {
@@ -208,6 +208,25 @@ rootSocket.on(EVENTS.SocketIONewUserReady, function(CurUserSocketioId){
 
         userSocket.emit(EVENTS.ReqQrySubscriberTopic, reqQrySubscriberField);
 
+        g_curDate   = GetCurrTime();
+        g_startTime = g_curDate.getTime();
+        g_output_info = '\n*******************  Test Start *****************' + '\n'
+                      + "g_rtn_callback_onesec: " + g_rtn_callback_onesec + "\n\n"
+                      + '\n' + 'StartTime:     ' + g_curDate + '\n';
+
+        fs.appendFileSync (testfileName, g_output_info);
+
+        var reqMonitorObjectTopicData = new SysUserApiStruct.CShfeFtdcReqQryMonitorObjectField()
+        ReqQryMonitorObjectTopicField = {}
+        ReqQryMonitorObjectTopicField.reqObject  = reqMonitorObjectTopicData
+        ReqQryMonitorObjectTopicField.RequestId  = 1
+        ReqQryMonitorObjectTopicField.rspMessage =  EVENTS.RspQryMonitorObjectTopic + ReqQryMonitorObjectTopicField.RequestId
+
+        var g_time = 30;
+        // for (var i = 0; i < 300 * g_time; ++i) {
+        //     userSocket.emit(EVENTS.ReqQryMonitorObjectTopic, ReqQryMonitorObjectTopicField);
+        // }
+        
         // userApi.emitter.emit(EVENTS.ReqQrySubscriberTopic, reqQrySubscriberField);
         // userSocket.emit(EVENTS.ReqQrySysUserLoginTopic, reqField);
 	});
@@ -457,11 +476,108 @@ rootSocket.on(EVENTS.SocketIONewUserReady, function(CurUserSocketioId){
         process.send(data);
     });
 
+    var rspUserLoginCallNumb  = 1;
+    var rspMonitorObjCallNumb = 0;
+    var rtnObjectAttrCallNumb = 0;
+
+    var g_output_info = "";
+    var g_RtnObjectAttrTopic_spi_callbackNumb = 0;
+    var g_startTime = 0;
+    var g_endTime = 0;
+
+    var g_sec = 1
+    var g_min = 1
+    var g_stopusec = g_sec * g_min * 1000;
+
+    var g_testTimeIndex = 0;
+    var g_sec_array = [1,5,30,60,60,60,60];
+    var g_min_array = [1,1,1, 1, 5, 30,60];
+    var test_numb = 4;
+
+    var g_reqNumb = 1;
+    var g_rtn_over = false;
+
+    var g_sec_rtnSendNumber = 50;
+    var g_sec_rtnSendFreq = 1000;
+    var g_rtn_callback_onesec = g_sec_rtnSendNumber * g_sec_rtnSendFreq;
+
+    var testfileName = path.join (__dirname, './test-com-redhat-socketio-child-'+ g_rtn_callback_onesec +'.txt');
+
+    var g_curDate = "";
+    var g_stop = false;
+
+    var GetCurrTime = function() {
+    myDate = new Date()
+    return myDate;
+    }
+
+    var resetReqQrySubscriber = function() 
+    {
+        if (g_reqNumb ==  6)
+        {
+            g_testTimeIndex++;
+
+            if (g_testTimeIndex >= test_numb)
+            {
+             process.exit(0);
+            }
+
+            g_sec = g_sec_array[g_testTimeIndex];
+            g_min = g_min_array[g_testTimeIndex];
+            g_stopusec = g_sec * g_min * 1000;
+
+            g_output_info = "\n----------- Reset Test Time! ----------" + '\n';
+            g_output_info += "g_sec: " + g_sec + "    ";
+            g_output_info += "g_min: " + g_min + '\n';
+            g_output_info += "g_testTimeIndex:  " + g_testTimeIndex + '\n';
+
+            fs.appendFileSync(testfileName, g_output_info);        
+            g_reqNumb = 1;
+        }
+
+        g_curDate = GetCurrTime();
+        g_startTime = g_curDate.getTime();
+        g_output_info = '\n' + 'StartTime:     ' + g_curDate + '\n';
+        fs.appendFileSync (testfileName,  g_output_info);
+        
+        g_rtn_over = false;
+        g_RtnObjectAttrTopic_spi_callbackNumb = 0;
+    }
+
+    var testNumber = 0;
+    // man1
     userSocket.on(EVENTS.RtnObjectAttrTopic, function(callbackData){
         var data = {};
         data.message = EVENTS.RtnObjectAttrTopic;
         data.callbackData = callbackData;
-        process.send(data);
+        // process.send(data);
+
+        if (callbackData.AttrValue === 0) {
+            testNumber++;
+            if (testNumber === 100000) {
+                g_output_info =  'testNumber === 100000！     \n'
+                fs.appendFileSync (testfileName, g_output_info + '\n');
+            }
+        }
+
+        if (g_rtn_over === true) return
+
+        ++g_RtnObjectAttrTopic_spi_callbackNumb;
+        g_curDate = GetCurrTime();
+        if ((g_curDate.getTime() - g_startTime) > g_stopusec)
+        {
+          g_output_info =  'TestTime :     ' + g_stopusec/1000 + 's\n'
+          g_output_info += 'SumCallbkNumb: ' + g_RtnObjectAttrTopic_spi_callbackNumb + '\n'
+          g_output_info += 'AveCallbkNumb: ' + g_RtnObjectAttrTopic_spi_callbackNumb / (g_stopusec/1000) + '\n'
+          g_output_info += 'BandWidth:     ' + g_RtnObjectAttrTopic_spi_callbackNumb * 432 / g_stopusec * 1000 / 1024/1024 + 'M/s\n'
+          g_output_info += 'g_reqNumb:     ' + g_reqNumb++ + '\n';
+          g_output_info += 'EndTime:       ' + g_curDate + '\n';
+
+          fs.appendFileSync (testfileName, g_output_info + '\n');
+          
+          g_rtn_over = true;
+          resetReqQrySubscriber();
+        }
     });
 
     userSocket.on(EVENTS.RspQryInvalidateOrderTopic, function(callbackData){
