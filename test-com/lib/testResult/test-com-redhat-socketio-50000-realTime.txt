@@ -1,0 +1,33 @@
+
+*******************  Test Start *****************
+g_rtn_callback_onesec: 50000
+
+TestTime :     30s
+SumCallbkNumb: 236304
+AveCallbkNumb: 7876.8
+BandWidth:     0.41315460205078125M/s
+g_reqNumb:     3
+EndTime:       Thu Sep 22 2016 14:50:22 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 14:50:22 GMT+0800 (中国标准时间)
+Get all the data sended in the first second cost 187803 ms
+
+
+*******************  Test Start *****************
+g_sec: 60		g_min: 60
+g_rtn_callback_onesec: 50000
+
+AveSendNumberInOneSecond:  51020.4081632653
+AveSendNumberInOneSecond:  60901.33982947625
+AveSendNumberInOneSecond:  58892.81507656066
+AveSendNumberInOneSecond:  58548.0093676815
+
+*******************  Test Start *****************
+g_sec: 60		g_min: 60
+g_rtn_callback_onesec: 50000
+
+AveSendNumberInOneSecond:  52465.897166841554
+AveSendNumberInOneSecond:  62500
+AveSendNumberInOneSecond:  60532.68765133172
+AveSendNumberInOneSecond:  60459.49214026602

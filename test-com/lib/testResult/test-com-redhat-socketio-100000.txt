@@ -1,0 +1,80 @@
+
+*******************  Test Start *****************
+g_rtn_callback_onesec: 100000
+
+
+StartTime:     Thu Sep 22 2016 10:18:52 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 1
+AveCallbkNumb: 1
+BandWidth:     0.0004119873046875M/s
+g_reqNumb:     1
+EndTime:       Thu Sep 22 2016 10:18:53 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:18:53 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 1
+AveCallbkNumb: 1
+BandWidth:     0.0004119873046875M/s
+g_reqNumb:     2
+EndTime:       Thu Sep 22 2016 10:19:03 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:19:03 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 18493
+AveCallbkNumb: 18493
+BandWidth:     7.6188812255859375M/s
+g_reqNumb:     3
+EndTime:       Thu Sep 22 2016 10:19:04 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:19:04 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 18990
+AveCallbkNumb: 18990
+BandWidth:     7.823638916015625M/s
+g_reqNumb:     4
+EndTime:       Thu Sep 22 2016 10:19:05 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:19:05 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 16731
+AveCallbkNumb: 16731
+BandWidth:     6.8929595947265625M/s
+g_reqNumb:     5
+EndTime:       Thu Sep 22 2016 10:19:06 GMT+0800 (中国标准时间)
+
+
+----------- Reset Test Time! ----------
+g_sec: 5    g_min: 1
+g_testTimeIndex:  1
+
+StartTime:     Thu Sep 22 2016 10:19:06 GMT+0800 (中国标准时间)
+Get all the data sended in the first second cost 16061 ms
+
+AveSendNumberInOneSecond:  56785.917092561045
+
+*******************  Test Start *****************
+g_rtn_callback_onesec: 100000
+
+
+StartTime:     Thu Sep 22 2016 10:37:33 GMT+0800 (中国标准时间)
+
+*******************  Test Start *****************
+g_rtn_callback_onesec: 100000
+
+
+StartTime:     Thu Sep 22 2016 10:37:33 GMT+0800 (中国标准时间)
+TestTime :     5s
+SumCallbkNumb: 45786
+AveCallbkNumb: 9157.2
+BandWidth:     3.7726501464843754M/s
+g_reqNumb:     1
+EndTime:       Thu Sep 22 2016 10:37:41 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:37:41 GMT+0800 (中国标准时间)
+AveSendNumberInOneSecond:  49900.199600798405

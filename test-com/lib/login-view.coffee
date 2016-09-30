@@ -35,6 +35,7 @@ g_rtn_callback_onesec = g_sec_rtnSendNumber * g_sec_rtnSendFreq;
 
 g_curDate = "";
 g_stop = false;
+g_isFirst = true;
 
 fs           = require 'fs'
 path         = require 'path'
@@ -63,11 +64,8 @@ resetReqQrySubscriber = ->
         fs.appendFileSync testfileName, g_output_info
 
         g_reqNumb = 1; 
-
-    g_curDate = GetCurrTime();
-    g_startTime = g_curDate.getTime();
-    fs.appendFileSync testfileName, '\n' + 'StartTime:    ' + g_curDate + '\n'
     
+    g_isFirst = true;
     g_rtn_over = false;
     g_RtnObjectAttrTopic_spi_callbackNumb = 0;  
 
@@ -161,6 +159,13 @@ class LoginView extends View
         console.log 'StartTime: ' + g_curDate
 
         userApi.emitter.on EVENTS.RtnObjectAttrTopic, (data) =>
+          if true == g_isFirst
+            g_startTime = g_curDate.getTime();
+            g_testStartTime = g_startTime;
+            g_output_info = '\n' + 'StartTime:     ' + g_curDate + '\n';
+            fs.appendFileSync (testfileName, g_output_info);            
+            g_isFirst = false;
+				
           if g_rtn_over == true 
             return
           # console.log (EVENTS.RtnObjectAttrTopic)

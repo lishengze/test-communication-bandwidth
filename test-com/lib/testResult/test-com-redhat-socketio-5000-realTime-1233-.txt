@@ -1,0 +1,83 @@
+
+*******************  Test Start *****************
+g_sec: 1		g_min: 1
+g_rtn_callback_onesec: 5000
+
+
+StartTime:     Tue Sep 27 2016 18:02:08 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 2
+AveCallbkNumb: 2
+BandWidth:     0.0023517608642578125M/s
+g_reqNumb:     1
+EndTime:       Tue Sep 27 2016 18:02:13 GMT+0800 (中国标准时间)
+
+
+StartTime:     Tue Sep 27 2016 18:02:13 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 4999
+AveCallbkNumb: 4999
+BandWidth:     5.878226280212402M/s
+g_reqNumb:     2
+EndTime:       Tue Sep 27 2016 18:02:19 GMT+0800 (中国标准时间)
+
+
+StartTime:     Tue Sep 27 2016 18:02:19 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 8228
+AveCallbkNumb: 8228
+BandWidth:     9.67514419555664M/s
+g_reqNumb:     3
+EndTime:       Tue Sep 27 2016 18:02:20 GMT+0800 (中国标准时间)
+
+
+StartTime:     Tue Sep 27 2016 18:02:20 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 1772
+AveCallbkNumb: 1772
+BandWidth:     2.083660125732422M/s
+g_reqNumb:     4
+EndTime:       Tue Sep 27 2016 18:02:30 GMT+0800 (中国标准时间)
+
+
+StartTime:     Tue Sep 27 2016 18:02:30 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 7853
+AveCallbkNumb: 7853
+BandWidth:     9.2341890335083M/s
+g_reqNumb:     5
+EndTime:       Tue Sep 27 2016 18:02:31 GMT+0800 (中国标准时间)
+
+
+----------- Reset Test Time! ----------
+g_sec: 5    g_min: 1
+g_testTimeIndex:  1
+
+StartTime:     Tue Sep 27 2016 18:02:31 GMT+0800 (中国标准时间)
+TestTime :     5s
+SumCallbkNumb: 7147
+AveCallbkNumb: 1429.4
+BandWidth:     1.6808034896850585M/s
+g_reqNumb:     1
+EndTime:       Tue Sep 27 2016 18:02:45 GMT+0800 (中国标准时间)
+
+
+StartTime:     Tue Sep 27 2016 18:02:45 GMT+0800 (中国标准时间)
+TestTime :     5s
+SumCallbkNumb: 20000
+AveCallbkNumb: 4000
+BandWidth:     4.703521728515625M/s
+g_reqNumb:     2
+EndTime:       Tue Sep 27 2016 18:03:06 GMT+0800 (中国标准时间)
+
+
+StartTime:     Tue Sep 27 2016 18:03:06 GMT+0800 (中国标准时间)
+TestTime :     5s
+SumCallbkNumb: 25000
+AveCallbkNumb: 5000
+BandWidth:     5.879402160644531M/s
+g_reqNumb:     3
+EndTime:       Tue Sep 27 2016 18:03:38 GMT+0800 (中国标准时间)
+
+
+StartTime:     Tue Sep 27 2016 18:03:38 GMT+0800 (中国标准时间)

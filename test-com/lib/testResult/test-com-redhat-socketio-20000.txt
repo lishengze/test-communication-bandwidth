@@ -1,0 +1,226 @@
+
+*******************  Test Start *****************
+g_rtn_callback_onesec: 20000
+
+
+StartTime:     Thu Sep 22 2016 10:40:44 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 1
+AveCallbkNumb: 1
+BandWidth:     0.0004119873046875M/s
+g_reqNumb:     1
+EndTime:       Thu Sep 22 2016 10:40:45 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:40:45 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 1
+AveCallbkNumb: 1
+BandWidth:     0.0004119873046875M/s
+g_reqNumb:     2
+EndTime:       Thu Sep 22 2016 10:40:46 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:40:46 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 10335
+AveCallbkNumb: 10335
+BandWidth:     4.2578887939453125M/s
+g_reqNumb:     3
+EndTime:       Thu Sep 22 2016 10:40:47 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:40:47 GMT+0800 (中国标准时间)
+Get all the data sended in the first second cost 3791 ms
+
+AveSendNumberInOneSecond:  56657.22379603399
+TestTime :     1s
+SumCallbkNumb: 9664
+AveCallbkNumb: 9664
+BandWidth:     3.9814453125M/s
+g_reqNumb:     4
+EndTime:       Thu Sep 22 2016 10:40:50 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:40:50 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 18719
+AveCallbkNumb: 18719
+BandWidth:     7.7119903564453125M/s
+g_reqNumb:     5
+EndTime:       Thu Sep 22 2016 10:40:51 GMT+0800 (中国标准时间)
+
+
+----------- Reset Test Time! ----------
+g_sec: 5    g_min: 1
+g_testTimeIndex:  1
+
+StartTime:     Thu Sep 22 2016 10:40:51 GMT+0800 (中国标准时间)
+AveSendNumberInOneSecond:  61919.50464396285
+AveSendNumberInOneSecond:  57471.26436781609
+AveSendNumberInOneSecond:  60790.273556231004
+TestTime :     5s
+SumCallbkNumb: 46198
+AveCallbkNumb: 9239.6
+BandWidth:     3.806597900390625M/s
+g_reqNumb:     1
+EndTime:       Thu Sep 22 2016 10:40:56 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:40:56 GMT+0800 (中国标准时间)
+AveSendNumberInOneSecond:  56497.17514124294
+AveSendNumberInOneSecond:  59880.239520958086
+TestTime :     5s
+SumCallbkNumb: 35083
+AveCallbkNumb: 7016.6
+BandWidth:     2.8907501220703127M/s
+g_reqNumb:     2
+EndTime:       Thu Sep 22 2016 10:41:03 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:41:03 GMT+0800 (中国标准时间)
+AveSendNumberInOneSecond:  45045.045045045044
+AveSendNumberInOneSecond:  44543.429844098
+AveSendNumberInOneSecond:  35714.28571428572
+AveSendNumberInOneSecond:  37664.78342749529
+TestTime :     5s
+SumCallbkNumb: 80000
+AveCallbkNumb: 16000
+BandWidth:     6.591796875M/s
+g_reqNumb:     3
+EndTime:       Thu Sep 22 2016 10:41:13 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:41:13 GMT+0800 (中国标准时间)
+AveSendNumberInOneSecond:  55710.30640668524
+AveSendNumberInOneSecond:  54644.8087431694
+AveSendNumberInOneSecond:  51679.58656330749
+AveSendNumberInOneSecond:  52493.43832020997
+TestTime :     5s
+SumCallbkNumb: 87662
+AveCallbkNumb: 17532.4
+BandWidth:     7.223126220703125M/s
+g_reqNumb:     4
+EndTime:       Thu Sep 22 2016 10:41:18 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:41:18 GMT+0800 (中国标准时间)
+AveSendNumberInOneSecond:  56022.40896358543
+TestTime :     5s
+SumCallbkNumb: 12338
+AveCallbkNumb: 2467.6
+BandWidth:     1.0166198730468752M/s
+g_reqNumb:     5
+EndTime:       Thu Sep 22 2016 10:41:25 GMT+0800 (中国标准时间)
+
+
+----------- Reset Test Time! ----------
+g_sec: 30    g_min: 1
+g_testTimeIndex:  2
+
+StartTime:     Thu Sep 22 2016 10:41:25 GMT+0800 (中国标准时间)
+AveSendNumberInOneSecond:  59880.239520958086
+AveSendNumberInOneSecond:  55710.30640668524
+AveSendNumberInOneSecond:  58823.529411764706
+AveSendNumberInOneSecond:  54495.91280653951
+AveSendNumberInOneSecond:  54945.054945054944
+AveSendNumberInOneSecond:  55865.9217877095
+AveSendNumberInOneSecond:  55865.9217877095
+AveSendNumberInOneSecond:  57471.26436781609
+AveSendNumberInOneSecond:  53475.935828877
+AveSendNumberInOneSecond:  53619.30294906166
+AveSendNumberInOneSecond:  55555.555555555555
+AveSendNumberInOneSecond:  51413.88174807198
+AveSendNumberInOneSecond:  56338.028169014084
+TestTime :     30s
+SumCallbkNumb: 260000
+AveCallbkNumb: 8666.666666666666
+BandWidth:     3.570556640625M/s
+g_reqNumb:     1
+EndTime:       Thu Sep 22 2016 10:41:56 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:41:56 GMT+0800 (中国标准时间)
+AveSendNumberInOneSecond:  45248.86877828054
+AveSendNumberInOneSecond:  42918.454935622314
+AveSendNumberInOneSecond:  35714.28571428572
+AveSendNumberInOneSecond:  33388.9816360601
+AveSendNumberInOneSecond:  26990.55330634278
+AveSendNumberInOneSecond:  22421.52466367713
+AveSendNumberInOneSecond:  54945.054945054944
+AveSendNumberInOneSecond:  48661.800486618005
+AveSendNumberInOneSecond:  55401.662049861494
+AveSendNumberInOneSecond:  52356.02094240838
+AveSendNumberInOneSecond:  54945.054945054944
+AveSendNumberInOneSecond:  52356.02094240838
+AveSendNumberInOneSecond:  54644.8087431694
+AveSendNumberInOneSecond:  50377.83375314862
+AveSendNumberInOneSecond:  54054.05405405405
+AveSendNumberInOneSecond:  49261.08374384236
+AveSendNumberInOneSecond:  53333.333333333336
+TestTime :     30s
+SumCallbkNumb: 340000
+AveCallbkNumb: 11333.333333333334
+BandWidth:     4.669189453125M/s
+g_reqNumb:     2
+EndTime:       Thu Sep 22 2016 10:42:35 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:42:35 GMT+0800 (中国标准时间)
+AveSendNumberInOneSecond:  54945.054945054944
+AveSendNumberInOneSecond:  54945.054945054944
+AveSendNumberInOneSecond:  51948.05194805195
+AveSendNumberInOneSecond:  51546.39175257732
+AveSendNumberInOneSecond:  54347.82608695652
+AveSendNumberInOneSecond:  48076.92307692308
+AveSendNumberInOneSecond:  50761.42131979695
+AveSendNumberInOneSecond:  46403.71229698376
+AveSendNumberInOneSecond:  25252.52525252525
+AveSendNumberInOneSecond:  48309.178743961354
+AveSendNumberInOneSecond:  34904.01396160558
+AveSendNumberInOneSecond:  51813.47150259068
+AveSendNumberInOneSecond:  51020.4081632653
+AveSendNumberInOneSecond:  48661.800486618005
+TestTime :     30s
+SumCallbkNumb: 295905
+AveCallbkNumb: 9863.5
+BandWidth:     4.063636779785156M/s
+g_reqNumb:     3
+EndTime:       Thu Sep 22 2016 10:43:05 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:43:05 GMT+0800 (中国标准时间)
+AveSendNumberInOneSecond:  34305.31732418525
+AveSendNumberInOneSecond:  51150.895140664965
+AveSendNumberInOneSecond:  47961.630695443644
+AveSendNumberInOneSecond:  51546.39175257732
+AveSendNumberInOneSecond:  46838.4074941452
+AveSendNumberInOneSecond:  47961.630695443644
+AveSendNumberInOneSecond:  50251.25628140703
+AveSendNumberInOneSecond:  52770.44854881267
+AveSendNumberInOneSecond:  49261.08374384236
+AveSendNumberInOneSecond:  49019.60784313725
+TestTime :     30s
+SumCallbkNumb: 187337
+AveCallbkNumb: 6244.566666666667
+BandWidth:     2.572682189941406M/s
+g_reqNumb:     4
+EndTime:       Thu Sep 22 2016 10:43:35 GMT+0800 (中国标准时间)
+
+
+StartTime:     Thu Sep 22 2016 10:43:35 GMT+0800 (中国标准时间)
+AveSendNumberInOneSecond:  28985.507246376812
+AveSendNumberInOneSecond:  50377.83375314862
+AveSendNumberInOneSecond:  49140.04914004914
+AveSendNumberInOneSecond:  52631.57894736842
+AveSendNumberInOneSecond:  49875.31172069826
+AveSendNumberInOneSecond:  50251.25628140703
+AveSendNumberInOneSecond:  47961.630695443644
+AveSendNumberInOneSecond:  48192.77108433735
+AveSendNumberInOneSecond:  51150.895140664965
+
+*******************  Test Start *****************
+g_rtn_callback_onesec: 20000
+
+
+StartTime:     Thu Sep 22 2016 10:47:57 GMT+0800 (中国标准时间)

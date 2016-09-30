@@ -1,0 +1,7 @@
+
+*******************  Test Start *****************
+g_sec: 60		g_min: 5
+g_rtn_callback_onesec: 60000
+
+
+StartTime:     Fri Sep 30 2016 11:59:15 GMT+0800 (中国标准时间)

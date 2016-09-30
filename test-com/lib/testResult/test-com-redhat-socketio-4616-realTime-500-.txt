@@ -1,0 +1,246 @@
+
+*******************  Test Start *****************
+g_sec: 1		g_min: 1
+g_rtn_callback_onesec: 4616
+
+
+StartTime:     Fri Sep 30 2016 12:40:57 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 2
+AveCallbkNumb: 2
+BandWidth:     0.00095367431640625M/s
+g_reqNumb:     1
+EndTime:       Fri Sep 30 2016 12:40:59 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:40:59 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 4615
+AveCallbkNumb: 4615
+BandWidth:     2.200603485107422M/s
+g_reqNumb:     2
+EndTime:       Fri Sep 30 2016 12:41:00 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:41:00 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 4616
+AveCallbkNumb: 4616
+BandWidth:     2.201080322265625M/s
+g_reqNumb:     3
+EndTime:       Fri Sep 30 2016 12:41:02 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:41:02 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 4616
+AveCallbkNumb: 4616
+BandWidth:     2.201080322265625M/s
+g_reqNumb:     4
+EndTime:       Fri Sep 30 2016 12:41:04 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:41:04 GMT+0800 (中国标准时间)
+TestTime :     1s
+SumCallbkNumb: 4616
+AveCallbkNumb: 4616
+BandWidth:     2.201080322265625M/s
+g_reqNumb:     5
+EndTime:       Fri Sep 30 2016 12:41:05 GMT+0800 (中国标准时间)
+
+
+----------- Reset Test Time! ----------
+g_sec: 5    g_min: 1
+g_testTimeIndex:  1
+
+StartTime:     Fri Sep 30 2016 12:41:05 GMT+0800 (中国标准时间)
+TestTime :     5s
+SumCallbkNumb: 18464
+AveCallbkNumb: 3692.8
+BandWidth:     1.7608642578125M/s
+g_reqNumb:     1
+EndTime:       Fri Sep 30 2016 12:41:12 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:41:12 GMT+0800 (中国标准时间)
+TestTime :     5s
+SumCallbkNumb: 18464
+AveCallbkNumb: 3692.8
+BandWidth:     1.7608642578125M/s
+g_reqNumb:     2
+EndTime:       Fri Sep 30 2016 12:41:18 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:41:18 GMT+0800 (中国标准时间)
+TestTime :     5s
+SumCallbkNumb: 14601
+AveCallbkNumb: 2920.2
+BandWidth:     1.3924598693847656M/s
+g_reqNumb:     3
+EndTime:       Fri Sep 30 2016 12:41:23 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:41:23 GMT+0800 (中国标准时间)
+TestTime :     5s
+SumCallbkNumb: 13095
+AveCallbkNumb: 2619
+BandWidth:     1.2488365173339844M/s
+g_reqNumb:     4
+EndTime:       Fri Sep 30 2016 12:41:29 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:41:29 GMT+0800 (中国标准时间)
+TestTime :     5s
+SumCallbkNumb: 18464
+AveCallbkNumb: 3692.8
+BandWidth:     1.7608642578125M/s
+g_reqNumb:     5
+EndTime:       Fri Sep 30 2016 12:41:36 GMT+0800 (中国标准时间)
+
+
+----------- Reset Test Time! ----------
+g_sec: 30    g_min: 1
+g_testTimeIndex:  2
+
+StartTime:     Fri Sep 30 2016 12:41:36 GMT+0800 (中国标准时间)
+TestTime :     30s
+SumCallbkNumb: 83764
+AveCallbkNumb: 2792.133333333333
+BandWidth:     1.3313929239908853M/s
+g_reqNumb:     1
+EndTime:       Fri Sep 30 2016 12:42:06 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:42:06 GMT+0800 (中国标准时间)
+TestTime :     30s
+SumCallbkNumb: 87028
+AveCallbkNumb: 2900.9333333333334
+BandWidth:     1.3832728068033855M/s
+g_reqNumb:     2
+EndTime:       Fri Sep 30 2016 12:42:37 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:42:37 GMT+0800 (中国标准时间)
+TestTime :     30s
+SumCallbkNumb: 92320
+AveCallbkNumb: 3077.3333333333335
+BandWidth:     1.4673868815104167M/s
+g_reqNumb:     3
+EndTime:       Fri Sep 30 2016 12:43:09 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:43:09 GMT+0800 (中国标准时间)
+TestTime :     30s
+SumCallbkNumb: 92320
+AveCallbkNumb: 3077.3333333333335
+BandWidth:     1.4673868815104167M/s
+g_reqNumb:     4
+EndTime:       Fri Sep 30 2016 12:43:40 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:43:40 GMT+0800 (中国标准时间)
+TestTime :     30s
+SumCallbkNumb: 91332
+AveCallbkNumb: 3044.4
+BandWidth:     1.4516830444335938M/s
+g_reqNumb:     5
+EndTime:       Fri Sep 30 2016 12:44:10 GMT+0800 (中国标准时间)
+
+
+----------- Reset Test Time! ----------
+g_sec: 60    g_min: 1
+g_testTimeIndex:  3
+
+StartTime:     Fri Sep 30 2016 12:44:10 GMT+0800 (中国标准时间)
+TestTime :     60s
+SumCallbkNumb: 175119
+AveCallbkNumb: 2918.65
+BandWidth:     1.3917207717895508M/s
+g_reqNumb:     1
+EndTime:       Fri Sep 30 2016 12:45:10 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:45:10 GMT+0800 (中国标准时间)
+TestTime :     60s
+SumCallbkNumb: 176685
+AveCallbkNumb: 2944.75
+BandWidth:     1.4041662216186523M/s
+g_reqNumb:     2
+EndTime:       Fri Sep 30 2016 12:46:10 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:46:10 GMT+0800 (中国标准时间)
+TestTime :     60s
+SumCallbkNumb: 193851
+AveCallbkNumb: 3230.85
+BandWidth:     1.5405893325805664M/s
+g_reqNumb:     3
+EndTime:       Fri Sep 30 2016 12:47:10 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:47:10 GMT+0800 (中国标准时间)
+TestTime :     60s
+SumCallbkNumb: 184661
+AveCallbkNumb: 3077.6833333333334
+BandWidth:     1.4675537745157878M/s
+g_reqNumb:     4
+EndTime:       Fri Sep 30 2016 12:48:12 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:48:12 GMT+0800 (中国标准时间)
+TestTime :     60s
+SumCallbkNumb: 190421
+AveCallbkNumb: 3173.6833333333334
+BandWidth:     1.5133301417032878M/s
+g_reqNumb:     5
+EndTime:       Fri Sep 30 2016 12:49:12 GMT+0800 (中国标准时间)
+
+
+----------- Reset Test Time! ----------
+g_sec: 60    g_min: 5
+g_testTimeIndex:  4
+
+StartTime:     Fri Sep 30 2016 12:49:12 GMT+0800 (中国标准时间)
+TestTime :     300s
+SumCallbkNumb: 908187
+AveCallbkNumb: 3027.29
+BandWidth:     1.4435243606567383M/s
+g_reqNumb:     1
+EndTime:       Fri Sep 30 2016 12:54:12 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:54:12 GMT+0800 (中国标准时间)
+TestTime :     300s
+SumCallbkNumb: 911274
+AveCallbkNumb: 3037.58
+BandWidth:     1.4484310150146484M/s
+g_reqNumb:     2
+EndTime:       Fri Sep 30 2016 12:59:12 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 12:59:12 GMT+0800 (中国标准时间)
+TestTime :     300s
+SumCallbkNumb: 939742
+AveCallbkNumb: 3132.4733333333334
+BandWidth:     1.493679682413737M/s
+g_reqNumb:     3
+EndTime:       Fri Sep 30 2016 13:04:15 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 13:04:15 GMT+0800 (中国标准时间)
+TestTime :     300s
+SumCallbkNumb: 900120
+AveCallbkNumb: 3000.4
+BandWidth:     1.4307022094726562M/s
+g_reqNumb:     4
+EndTime:       Fri Sep 30 2016 13:09:16 GMT+0800 (中国标准时间)
+
+
+StartTime:     Fri Sep 30 2016 13:09:16 GMT+0800 (中国标准时间)
+TestTime :     300s
+SumCallbkNumb: 913968
+AveCallbkNumb: 3046.56
+BandWidth:     1.4527130126953125M/s
+g_reqNumb:     5
+EndTime:       Fri Sep 30 2016 13:14:18 GMT+0800 (中国标准时间)
+
