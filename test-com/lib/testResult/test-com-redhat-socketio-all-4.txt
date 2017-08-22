@@ -1,0 +1,25 @@
+
+++++++++++++++++++++++++++++++ Set Request Params! ++++++++++++++++++++++++++++++
+g_rtnDataSize: 50
+g_rtnSendNumber: 15000
+g_rtnDataSizeIndex:  1
+
+StartTime:     Tue Oct 18 2016 16:33:12 GMT+0800 (中国标准时间)
+TestTime :     3600s
+SumCallbkNumb: 41475001
+AveCallbkNumb: 11520.833611111111
+BandWidth:     0.5493561559253268M/s
+g_reqNumb:     0
+EndTime:       Tue Oct 18 2016 17:33:12 GMT+0800 (中国标准时间)
+
+
+StartTime:     Tue Oct 18 2016 17:33:12 GMT+0800 (中国标准时间)
+TestTime :     3600s
+SumCallbkNumb: 40760093
+AveCallbkNumb: 11322.248055555556
+BandWidth:     0.5398868587281969M/s
+g_reqNumb:     1
+EndTime:       Tue Oct 18 2016 18:33:12 GMT+0800 (中国标准时间)
+
+
+StartTime:     Tue Oct 18 2016 18:33:12 GMT+0800 (中国标准时间)
